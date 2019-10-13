@@ -13,6 +13,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.BLACK" parent="AppTheme.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColorRed</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColorRed</item>
+        <item name="colorAccent">@color/secondaryColorRed</item>
+    </style>
+
     <style name="AppTheme.RED" parent="AppTheme.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColorRed</item>

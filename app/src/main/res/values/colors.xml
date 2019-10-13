@@ -5,6 +5,16 @@
     <color name="themeSelected">#e300aaff</color>
     <color name="seperator">#7ca6a6a6</color>
 
+    <!-- BLACK Theme -->
+    <color name="primaryColorBlack">#1F1B24</color>
+    <color name="primaryLightColorBlack">#FF9800</color>
+    <color name="primaryDarkColorBlack">#424242</color>
+    <color name="secondaryColorBlack">#FFC107</color>
+    <color name="secondaryLightColorBlack">#fccf4a</color>
+    <color name="secondaryDarkColorBlack">#e1a902</color>
+    <color name="primaryTextColorBlack">#ffffff</color>
+    <color name="secondaryTextColorBlack">#ffffff</color>
+
     <!-- RED Theme -->
     <color name="primaryColorRed">#F44336</color>
     <color name="primaryLightColorRed">#FFCDD2</color>
