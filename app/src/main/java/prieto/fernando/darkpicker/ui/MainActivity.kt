@@ -6,6 +6,7 @@ import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.main_activity.*
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Theme
+import prieto.fernando.darkpicker.util.RangeEvaluator
 import prieto.fernando.darkpicker.util.ThemeProvider
 import javax.inject.Inject
 
@@ -40,6 +41,6 @@ class MainActivity : DaggerAppCompatActivity() {
 
     private fun prepareThemeData() {
         themes.clear()
-        themes.addAll(ThemeProvider().getThemeList())
+        themes.addAll(themeProvider.getThemeList())
     }
 }
