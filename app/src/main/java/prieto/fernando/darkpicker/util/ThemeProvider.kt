@@ -8,7 +8,6 @@ import java.util.*
 class ThemeProvider constructor(
     private val rangeEvaluator: RangeEvaluator
 ) {
-
     var selectedTheme = "#000000"
 
     fun getThemeId(hexadecimalColour: String) = when {
