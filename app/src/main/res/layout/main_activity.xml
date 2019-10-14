@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <com.divyanshu.colorseekbar.ColorSeekBar
+    <prieto.fernando.darkpicker.widget.ColorSeekBar
         android:id="@+id/color_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
