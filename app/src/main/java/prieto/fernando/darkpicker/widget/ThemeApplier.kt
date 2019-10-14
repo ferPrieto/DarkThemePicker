@@ -2,8 +2,9 @@ package prieto.fernando.darkpicker.widget
 
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.BuildCompat
+import javax.inject.Inject
 
-class ThemeApplier {
+class ThemeApplier @Inject constructor(){
     fun applyTheme(themeMode: ThemeMode) {
         when (themeMode) {
             ThemeMode.LIGHT -> {

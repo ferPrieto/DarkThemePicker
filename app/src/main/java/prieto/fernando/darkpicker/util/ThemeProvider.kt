@@ -8,9 +8,15 @@ import java.util.*
 class ThemeProvider constructor(
     private val rangeEvaluator: RangeEvaluator
 ) {
-    var selectedTheme = "#000000"
+    private var selectedColour = "#000000"
 
-    fun getThemeId(hexadecimalColour: String) = when {
+    fun getSelectedStyle() = getThemeStyle(selectedColour)
+
+    fun setSelectedColour(hexadecimalColour: String) {
+        selectedColour = hexadecimalColour
+    }
+
+    private fun getThemeStyle(hexadecimalColour: String) = when {
         rangeEvaluator.isBlackRange(hexadecimalColour) -> R.style.AppTheme_BLACK
         rangeEvaluator.isRedRange(hexadecimalColour) -> R.style.AppTheme_RED
         rangeEvaluator.isDeepOrangeRange(hexadecimalColour) -> R.style.AppTheme_DEEPORANGE
@@ -33,7 +39,6 @@ class ThemeProvider constructor(
             R.style.AppTheme_GRAY
         }
     }
-
 
     @SuppressLint("ResourceAsColor")
     fun getThemeList(): ArrayList<Theme> {
