@@ -3,6 +3,7 @@ package prieto.fernando.darkpicker.ui
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.TranslateAnimation
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Theme
@@ -25,10 +26,58 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.inputs.applyTheme(ThemeMode.DARK)
         seekBarDragged = false
         animateFloatingButton()
+        setupInputListeners()
+        setupOutputListeners()
     }
+
+    private fun setupOutputListeners() {
+        viewModel.outputs.currentThemeModeRetrieved()
+            .subscribe { themeMode ->
+                setTheme(themeMode)
+                setFloatingActionButtonIcon(themeMode)
+            }.also { subscriptions.add(it) }
+    }
+
+    private fun setTheme(themeMode: ThemeMode) {
+        when (themeMode) {
+            ThemeMode.DARK -> viewModel.inputs.applyTheme(ThemeMode.LIGHT)
+            else -> viewModel.inputs.applyTheme(ThemeMode.DARK)
+        }
+    }
+
+    private fun setFloatingActionButtonIcon(themeMode: ThemeMode) {
+        when (themeMode) {
+            ThemeMode.LIGHT -> floatingActionButton.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_dark
+                )
+            )
+            ThemeMode.DARK -> floatingActionButton.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_light
+                )
+            )
+
+        }
+    }
+
+    private fun setupInputListeners() {
+        colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
+            override fun onColorChangeListener(color: Int) {
+                val hexadecimalColour = getHexadecimalColour(color)
+                themeProvider.setSelectedColour(hexadecimalColour)
+                this@MainActivity.recreate()
+            }
+        })
+        floatingActionButton.setOnClickListener {
+            viewModel.getCurrentTheme()
+        }
+    }
+
 
     private fun animateFloatingButton() {
         val animation = TranslateAnimation(0f, 0f, 500f, 0f)
@@ -41,19 +90,12 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        viewModel.inputs.initTheme()
         setTheme(themeProvider.getSelectedStyle())
 
         setContentView(R.layout.main_activity)
         prepareThemeData()
         themeSelected.setTheme(themes[1])
-
-        colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
-            override fun onColorChangeListener(color: Int) {
-                val hexadecimalColour = getHexadecimalColour(color)
-                themeProvider.setSelectedColour(hexadecimalColour)
-                this@MainActivity.recreate()
-            }
-        })
     }
 
     private fun getHexadecimalColour(colour: Int) = String.format("#%06X", 0xFFFFFF and colour)
