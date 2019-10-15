@@ -1,6 +1,8 @@
 package prieto.fernando.darkpicker.ui
 
 import android.os.Bundle
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.TranslateAnimation
 import androidx.lifecycle.ViewModelProviders
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Theme
@@ -9,8 +11,10 @@ import prieto.fernando.darkpicker.util.ThemeProvider
 import prieto.fernando.darkpicker.widget.ColorSeekBar
 import prieto.fernando.darkpicker.widget.ThemeMode
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekbar
+import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
+import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
 import kotlinx.android.synthetic.main.main_activity.theme_selected as themeSelected
+
 
 class MainActivity : BaseActivity<MainViewModel>() {
     @Inject
@@ -23,6 +27,15 @@ class MainActivity : BaseActivity<MainViewModel>() {
         super.onResume()
         viewModel.inputs.applyTheme(ThemeMode.DARK)
         seekBarDragged = false
+        animateFloatingButton()
+    }
+
+    private fun animateFloatingButton() {
+        val animation = TranslateAnimation(0f, 0f, 500f, 0f)
+        animation.duration = 500
+        val viewPropertyAnimator = floatingActionButton.animate()
+        viewPropertyAnimator.interpolator = AccelerateDecelerateInterpolator()
+        floatingActionButton.startAnimation(animation)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +47,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
         prepareThemeData()
         themeSelected.setTheme(themes[1])
 
-        colorSeekbar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
+        colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
             override fun onColorChangeListener(color: Int) {
                 val hexadecimalColour = getHexadecimalColour(color)
                 themeProvider.setSelectedColour(hexadecimalColour)
