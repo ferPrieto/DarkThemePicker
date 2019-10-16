@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_draw"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_margin"
+    app:layout_constraintTop_toBottomOf="@id/card_paragraph"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/draw_primary_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_normal"
+            android:layout_marginTop="@dimen/grid_semi_large"
+            android:layout_marginEnd="@dimen/grid_normal"
+            android:text="@string/draw_primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintEnd_toStartOf="@+id/draw_media_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/draw_sub_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_normal"
+            android:layout_marginEnd="@dimen/grid_normal"
+            android:text="@string/draw_sub_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toStartOf="@+id/draw_media_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/draw_primary_text" />
+
+        <ImageView
+            android:id="@+id/draw_media_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/grid_normal"
+            android:layout_marginEnd="@dimen/grid_normal"
+            android:src="@drawable/ic_dark_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/draw_sub_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/draw_action_button_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_semi_small"
+            android:minWidth="0dp"
+            android:paddingStart="@dimen/grid_semi_small"
+            android:paddingEnd="@dimen/grid_semi_small"
+            style="@style/Buton.Borderless.Colored"
+            android:text="@string/draw_action_button_first"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/draw_media_image" />
+
+        <Button
+            android:id="@+id/draw_action_butto_second"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_semi_small"
+            android:minWidth="0dp"
+            android:paddingStart="@dimen/grid_semi_small"
+            android:paddingEnd="@dimen/grid_semi_small"
+            android:text="@string/draw_action_butto_second"
+            app:layout_constraintStart_toEndOf="@+id/draw_action_button_first"
+            app:layout_constraintTop_toTopOf="@+id/draw_action_button_first" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

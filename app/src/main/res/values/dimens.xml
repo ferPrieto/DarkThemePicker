@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
 
+    <dimen name="grid_single">1dp</dimen>
+    <dimen name="grid_tiny">4dp</dimen>
+    <dimen name="grid_semi_small">8dp</dimen>
+    <dimen name="grid_small">10dp</dimen>
+    <dimen name="grid_normal">16dp</dimen>
+    <dimen name="grid_semi_large">20dp</dimen>
+    <dimen name="grid_large">30dp</dimen>
+    <dimen name="grid_semi_huge">40dp</dimen>
+    <dimen name="grid_huge">64dp</dimen>
 </resources>

@@ -11,11 +11,13 @@
 
     <include layout="@layout/paragraph_layout" />
 
+    <include layout="@layout/draw_layout" />
+
     <prieto.fernando.darkpicker.widget.ColorSeekBar
         android:id="@+id/color_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/grid_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -25,8 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="@dimen/grid_semi_large"
+        android:layout_marginBottom="@dimen/grid_semi_large"
         tools:src="@drawable/ic_dark"
         app:layout_constraintBottom_toTopOf="@+id/color_seek_bar"
         app:layout_constraintEnd_toEndOf="parent" />

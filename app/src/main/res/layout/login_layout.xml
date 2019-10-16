@@ -5,38 +5,38 @@
     app:layout_constraintTop_toTopOf="parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="@dimen/card_margin">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp">
+        android:padding="@dimen/grid_tiny">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ti_username"
+            android:id="@+id/login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User Name"
+                android:hint="@string/login_username"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ti_password"
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ti_username"
+            android:layout_below="@+id/login_username"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/login_password"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -45,7 +45,7 @@
             style="@style/Buton.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ti_password"
+            android:layout_below="@+id/login_password"
             android:layout_alignParentRight="true"
             android:text="Login" />
 
@@ -53,7 +53,7 @@
             style="@style/Buton.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ti_password"
+            android:layout_below="@+id/login_password"
             android:text="Forgot Password"
             android:textAllCaps="false" />
     </RelativeLayout>
