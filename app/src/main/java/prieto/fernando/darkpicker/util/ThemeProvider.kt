@@ -1,11 +1,14 @@
 package prieto.fernando.darkpicker.util
 
 import android.annotation.SuppressLint
+import dagger.Reusable
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Theme
 import java.util.*
+import javax.inject.Inject
 
-class ThemeProvider constructor(
+@Reusable
+class ThemeProvider @Inject constructor(
     private val rangeEvaluator: RangeEvaluator
 ) {
     private var selectedColour = "#000000"

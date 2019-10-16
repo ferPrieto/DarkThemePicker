@@ -1,8 +1,11 @@
 package prieto.fernando.darkpicker.util
 
+import dagger.Reusable
 import java.lang.Long
+import javax.inject.Inject
 
-class RangeEvaluator {
+@Reusable
+class RangeEvaluator @Inject constructor() {
 
     fun isBlackRange(black: String) =
         listOf(

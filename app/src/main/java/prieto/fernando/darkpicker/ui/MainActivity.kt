@@ -10,6 +10,7 @@ import prieto.fernando.darkpicker.model.Theme
 import prieto.fernando.darkpicker.presentation.MainViewModel
 import prieto.fernando.darkpicker.util.ThemeProvider
 import prieto.fernando.darkpicker.widget.ColorSeekBar
+import prieto.fernando.darkpicker.widget.ThemeApplier
 import prieto.fernando.darkpicker.widget.ThemeMode
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
@@ -21,12 +22,25 @@ class MainActivity : BaseActivity<MainViewModel>() {
     @Inject
     protected lateinit var themeProvider: ThemeProvider
 
+    @Inject
+    protected lateinit var themeApplier: ThemeApplier
+
     private val themes = mutableListOf<Theme>()
-    private var seekBarDragged = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.inputs.initTheme()
+        setTheme(themeProvider.getSelectedStyle())
+
+        setContentView(R.layout.main_activity)
+        prepareThemeData()
+        themeSelected.setTheme(themes[1])
+        setFloatingActionButtonIcon(themeApplier.getCurrentMode().blockingGet())
+    }
 
     override fun onResume() {
         super.onResume()
-        seekBarDragged = false
         animateFloatingButton()
         setupInputListeners()
         setupOutputListeners()
@@ -35,40 +49,38 @@ class MainActivity : BaseActivity<MainViewModel>() {
     private fun setupOutputListeners() {
         viewModel.outputs.currentThemeModeRetrieved()
             .subscribe { themeMode ->
-                setTheme(themeMode)
-                setFloatingActionButtonIcon(themeMode)
+                setDarkLightMode(themeMode)
             }.also { subscriptions.add(it) }
     }
 
-    private fun setTheme(themeMode: ThemeMode) {
-        when (themeMode) {
-            ThemeMode.DARK -> viewModel.inputs.applyTheme(ThemeMode.LIGHT)
-            else -> viewModel.inputs.applyTheme(ThemeMode.DARK)
+    private fun setDarkLightMode(currentThemeMode: ThemeMode) {
+        if (currentThemeMode == ThemeMode.DARK) {
+            viewModel.inputs.applyTheme(ThemeMode.LIGHT)
+        } else {
+            viewModel.inputs.applyTheme(ThemeMode.DARK)
         }
     }
 
-    private fun setFloatingActionButtonIcon(themeMode: ThemeMode) {
-        when (themeMode) {
+    private fun setFloatingActionButtonIcon(currentThemeMode: ThemeMode) {
+        when (currentThemeMode) {
             ThemeMode.LIGHT -> floatingActionButton.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_dark
                 )
             )
-            ThemeMode.DARK -> floatingActionButton.setImageDrawable(
+            else -> floatingActionButton.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_light
                 )
             )
-
         }
     }
 
     private fun setupInputListeners() {
         colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
-            override fun onColorChangeListener(color: Int) {
-                val hexadecimalColour = getHexadecimalColour(color)
+            override fun onColorChangeListener(hexadecimalColour: String) {
                 themeProvider.setSelectedColour(hexadecimalColour)
                 this@MainActivity.recreate()
             }
@@ -86,19 +98,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
         viewPropertyAnimator.interpolator = AccelerateDecelerateInterpolator()
         floatingActionButton.startAnimation(animation)
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.inputs.initTheme()
-        setTheme(themeProvider.getSelectedStyle())
-
-        setContentView(R.layout.main_activity)
-        prepareThemeData()
-        themeSelected.setTheme(themes[1])
-    }
-
-    private fun getHexadecimalColour(colour: Int) = String.format("#%06X", 0xFFFFFF and colour)
 
     private fun prepareThemeData() {
         themes.clear()
