@@ -15,8 +15,6 @@ import prieto.fernando.darkpicker.widget.ThemeMode
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
 import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
-import kotlinx.android.synthetic.main.main_activity.theme_selected as themeSelected
-
 
 class MainActivity : BaseActivity<MainViewModel>() {
     @Inject
@@ -35,7 +33,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
         setContentView(R.layout.main_activity)
         prepareThemeData()
-        themeSelected.setTheme(themes[1])
         setFloatingActionButtonIcon(themeApplier.getCurrentMode().blockingGet())
     }
 
@@ -89,7 +86,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
             viewModel.getCurrentTheme()
         }
     }
-
 
     private fun animateFloatingButton() {
         val animation = TranslateAnimation(0f, 0f, 500f, 0f)

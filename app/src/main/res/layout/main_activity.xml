@@ -7,131 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/card_login"
-        android:layout_margin="4dp" >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp">
+    <include layout="@layout/login_layout" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-                <EditText android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="User Name"
-                    android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/ti_username">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                style="@style/Buton.Borderless.Colored"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/ti_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"/>
-            <Button
-                style="@style/Buton.Borderless"
-                android:layout_below="@+id/ti_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Forgot Password"/>
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        app:layout_constraintTop_toBottomOf="@id/card_login">
-
-        <LinearLayout
-            android:id="@+id/card_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="4dp"
-            android:paddingTop="4dp"
-            android:paddingRight="4dp">
-
-            <TextView
-                style="@style/Text.Subhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_text" />
-
-            <TextView
-                style="@style/Text.Body1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/small_text" />
-
-            <TextView
-                android:id="@+id/tv_placeholder"
-                style="@style/Text.Caption"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Loading..."
-                android:visibility="invisible" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
-    <prieto.fernando.darkpicker.ui.ThemeView
-        android:id="@+id/theme_selected"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="4dp"
-        app:layout_constraintBottom_toTopOf="@id/color_seek_bar"/>
+    <include layout="@layout/paragraph_layout" />
 
     <prieto.fernando.darkpicker.widget.ColorSeekBar
         android:id="@+id/color_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"  />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/color_seek_bar"
         android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"/>
+        tools:src="@drawable/ic_dark"
+        app:layout_constraintBottom_toTopOf="@+id/color_seek_bar"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
