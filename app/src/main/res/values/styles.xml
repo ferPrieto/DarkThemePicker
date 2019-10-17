@@ -27,20 +27,6 @@
         <item name="colorAccent">@color/secondaryColorPink</item>
     </style>
 
-    <style name="AppTheme.PURPLE" parent="AppTheme.ActionBarLight">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primaryColorPurple</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColorPurple</item>
-        <item name="colorAccent">@color/secondaryColorPurple</item>
-    </style>
-
-    <style name="AppTheme.DEEPPURPLE" parent="AppTheme.ActionBarLight">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primaryColorDeepPurple</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColorDeepPurple</item>
-        <item name="colorAccent">@color/secondaryColorDeepPurple</item>
-    </style>
-
     <style name="AppTheme.INDIGO" parent="AppTheme.ActionBarLight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColorIndigo</item>
@@ -123,13 +109,6 @@
         <item name="colorPrimary">@color/primaryColorDeepOrange</item>
         <item name="colorPrimaryDark">@color/primaryDarkColorDeepOrange</item>
         <item name="colorAccent">@color/secondaryColorDeepOrange</item>
-    </style>
-
-    <style name="AppTheme.BROWN" parent="AppTheme.ActionBarLight">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primaryColorBrown</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColorBrown</item>
-        <item name="colorAccent">@color/secondaryColorBrown</item>
     </style>
 
     <style name="AppTheme.GRAY" parent="AppTheme.ActionBarLight">

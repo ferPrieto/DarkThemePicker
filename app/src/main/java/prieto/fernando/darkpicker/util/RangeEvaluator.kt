@@ -4,13 +4,6 @@ import java.lang.Long
 
 class RangeEvaluator {
 
-    fun isBlackRange(black: String) =
-        listOf(
-            "#000000", "#060202", "#110606", "#180808", "#200A0A", "#270C0C", "#2B0E0E",
-            "#300F0F", "#351111", "#371212", "#3C1313", "#461616", "#4A1818", "#4C1818",
-            "#4C1818", "#511A1A", "#561C1C"
-        ).contains(black)
-
     fun isRedRange(red: String): Boolean {
         val range = "#5A1D1D".getColourLong().rangeTo("#E04848".getColourLong())
         return red.getColourLong() in range
@@ -87,24 +80,6 @@ class RangeEvaluator {
                 || otherBlues.contains(blue)
     }
 
-
-    fun isPurpleRange(purple: String): Boolean {
-        val rangeFirst = "#7251FC".getColourLong().rangeTo("#8F3AFB".getColourLong())
-        val rangeSecond = "#9337FB".getColourLong().rangeTo("#9F2CFB".getColourLong())
-        val rangeThird = "#A329FA".getColourLong().rangeTo("#A429FA".getColourLong())
-
-        return purple.getColourLong() in rangeFirst
-                || purple.getColourLong() in rangeSecond
-                || purple.getColourLong() in rangeThird
-    }
-
-    fun isDeepPurpleRange(
-        deepPurple: String
-    ): Boolean {
-        val range = "#526CFD".getColourLong().rangeTo("#764FFC".getColourLong())
-        return deepPurple.getColourLong() in range
-    }
-
     fun isPinkRange(
         hexadecimalColour: String
     ) =
@@ -116,13 +91,6 @@ class RangeEvaluator {
             "#C31BD4", "#C21ED1", "#C020CE", "#BF22CB", "#BE23C9", "#BD24C7", "#BD25C6",
             "#BB27C4", "#BA29C1", "#B82CBD", "#B72DBB", "#B72EBA", "#B630B8", "#B531B6",
             "#B433B4", "#B433B4", "#B334B2", "#B236B0"
-        ).contains(hexadecimalColour)
-
-    fun isBrownRange(
-        hexadecimalColour: String
-    ) =
-        listOf(
-            "#B236B0", "#AD3DA6", "#A8449C", "#A54996", "#9E5585", "#985D7B", "#91686C", "#8D6E63"
         ).contains(hexadecimalColour)
 
     private fun String.getColourLong() =
