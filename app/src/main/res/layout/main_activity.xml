@@ -7,24 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <include layout="@layout/default_toolbar" />
+
+    <include layout="@layout/login_layout" />
+
+    <include layout="@layout/paragraph_layout" />
+
+    <include layout="@layout/draw_layout" />
+
     <prieto.fernando.darkpicker.widget.ColorSeekBar
         android:id="@+id/color_seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/grid_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <prieto.fernando.darkpicker.ui.ThemeView
-        android:id="@+id/theme_selected"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="4dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/grid_semi_large"
+        android:layout_marginBottom="@dimen/grid_semi_large"
+        app:layout_constraintBottom_toTopOf="@+id/color_seek_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:src="@drawable/ic_dark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

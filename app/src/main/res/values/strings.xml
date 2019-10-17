@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">DarkPicker</string>
+
+    <string name="title_text">Dark theme</string>
+    <string name="small_text">
+        Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios. They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions, and facilitating screen use in dark environments – all while conserving battery power. Devices with OLED screens benefit from the ability to turn off black pixels at any time of day.
+    </string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Login Layout -->
+    <string name="login_username">User Name</string>
+    <string name="login_password">Password</string>
+
+    <!-- Draw Layout -->
+    <string name="draw_primary">Welcome</string>
+    <string name="draw_sub_text">to the DarkPicker Demo</string>
+    <string name="draw_action_button_first">HELLO</string>
+    <string name="draw_action_butto_second">BYE</string>
+
+
 </resources>

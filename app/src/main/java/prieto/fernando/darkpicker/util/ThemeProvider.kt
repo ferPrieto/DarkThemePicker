@@ -17,7 +17,6 @@ class ThemeProvider constructor(
     }
 
     private fun getThemeStyle(hexadecimalColour: String) = when {
-        rangeEvaluator.isBlackRange(hexadecimalColour) -> R.style.AppTheme_BLACK
         rangeEvaluator.isRedRange(hexadecimalColour) -> R.style.AppTheme_RED
         rangeEvaluator.isDeepOrangeRange(hexadecimalColour) -> R.style.AppTheme_DEEPORANGE
         rangeEvaluator.isAmberRange(hexadecimalColour) -> R.style.AppTheme_AMBER

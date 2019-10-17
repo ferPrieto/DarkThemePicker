@@ -169,20 +169,20 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
                 thumbBorderRadius = oldThumbBorderRadius
                 thumbRadius = oldThumbRadius
                 invalidate()
-                colorChangeListener?.onColorChangeListener(getColor())
+                colorChangeListener?.onColorChangeListener(getHexadecimalColour())
             }
         }
         return true
     }
 
-    fun getColor() = thumbPaint.color
-
     fun setOnColorChangeListener(onColorChangeListener: OnColorChangeListener) {
         this.colorChangeListener = onColorChangeListener
     }
 
+    private fun getHexadecimalColour() = String.format("#%06X", 0xFFFFFF and thumbPaint.color)
+
     interface OnColorChangeListener {
 
-        fun onColorChangeListener(color: Int)
+        fun onColorChangeListener(color: String)
     }
 }
