@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <include layout="@layout/default_toolbar" />
+
     <include layout="@layout/login_layout" />
 
     <include layout="@layout/paragraph_layout" />
@@ -29,8 +31,8 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/grid_semi_large"
         android:layout_marginBottom="@dimen/grid_semi_large"
-        tools:src="@drawable/ic_dark"
         app:layout_constraintBottom_toTopOf="@+id/color_seek_bar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/ic_dark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
