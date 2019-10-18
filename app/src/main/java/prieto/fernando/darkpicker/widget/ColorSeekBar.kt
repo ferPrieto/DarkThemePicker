@@ -8,18 +8,46 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ArrayRes
 import prieto.fernando.darkpicker.R
+import kotlin.math.roundToInt
 
 class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
 
     private val minThumbRadius = 16f
     private var colorSeeds = intArrayOf(
-        Color.parseColor("#000000"),
-        Color.parseColor("#FF5252"),
-        Color.parseColor("#FFEB3B"),
-        Color.parseColor("#00C853"),
-        Color.parseColor("#00B0FF"),
-        Color.parseColor("#D500F9"),
-        Color.parseColor("#8D6E63")
+        Color.parseColor("#5A1D1D"),
+        Color.parseColor("#E04848"),
+        Color.parseColor("#DC4747"),
+        Color.parseColor("#FF644F"),
+        Color.parseColor("#FF9648"),
+        Color.parseColor("#FF9649"),
+        Color.parseColor("#FFCF3F"),
+        Color.parseColor("#FFCF40"),
+        Color.parseColor("#FFEA3B"),
+        Color.parseColor("#C8E340"),
+        Color.parseColor("#DDE63E"),
+        Color.parseColor("#80DA47"),
+        Color.parseColor("#C5E340"),
+        Color.parseColor("#3AD04E"),
+        Color.parseColor("#35CF4E"),
+        Color.parseColor("#00C08D"),
+        Color.parseColor("#00B4E4"),
+        Color.parseColor("#00B7CA"),
+        Color.parseColor("#00B8C7"),
+        Color.parseColor("#00BE9C"),
+        Color.parseColor("#00B0FD"),
+        Color.parseColor("#00B4E1"),
+        Color.parseColor("#3882FD"),
+        Color.parseColor("#12A1FE"),
+        Color.parseColor("#199BFE"),
+        Color.parseColor("#03AEFF"),
+        Color.parseColor("#05ACFF"),
+        Color.parseColor("#08AAFF"),
+        Color.parseColor("#0BA7FF"),
+        Color.parseColor("#A726FA"),
+        Color.parseColor("#B236B0"),
+        Color.parseColor("#C90AF9"),
+        Color.parseColor("#CC07F9")
+
     )
     private var canvasHeight: Int = 60
     private var barHeight: Int = 20
@@ -48,9 +76,9 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
             if (colorsId != 0) colorSeeds = getColorsById(colorsId)
             barCornerRadius = typedArray.getDimension(R.styleable.ColorSeekBar_cornerRadius, 8f)
             barHeight = typedArray.getDimension(R.styleable.ColorSeekBar_barHeight, 20f).toInt()
-            thumbBorder = typedArray.getDimension(R.styleable.ColorSeekBar_thumbBorder, 4f)
+            thumbBorder = typedArray.getDimension(R.styleable.ColorSeekBar_thumbBorder, 2f)
             thumbBorderColor =
-                typedArray.getColor(R.styleable.ColorSeekBar_thumbBorderColor, Color.BLACK)
+                typedArray.getColor(R.styleable.ColorSeekBar_thumbBorderColor, Color.WHITE)
             typedArray.recycle()
         }
         rectPaint.isAntiAlias = true
@@ -64,7 +92,7 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
             if (it < minThumbRadius) minThumbRadius else it
         }
         thumbBorderRadius = thumbRadius + thumbBorder
-        canvasHeight = (thumbBorderRadius * 3).toInt()
+        canvasHeight = (thumbBorderRadius * 4).toInt()
         thumbY = (canvasHeight / 2).toFloat()
 
         oldThumbRadius = thumbRadius
@@ -137,7 +165,7 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
     }
 
     private fun mix(start: Int, end: Int, position: Float): Int {
-        return start + Math.round(position * (end - start))
+        return start + (position * (end - start)).roundToInt()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -155,8 +183,8 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
-                thumbBorderRadius = (oldThumbBorderRadius * 1.5).toFloat()
-                thumbRadius = (oldThumbRadius * 1.5).toFloat()
+                thumbBorderRadius = (oldThumbBorderRadius * 2)
+                thumbRadius = (oldThumbRadius * 2)
             }
             MotionEvent.ACTION_MOVE -> {
                 parent.requestDisallowInterceptTouchEvent(true)

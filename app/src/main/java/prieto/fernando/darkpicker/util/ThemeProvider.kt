@@ -8,7 +8,7 @@ import java.util.*
 class ThemeProvider constructor(
     private val rangeEvaluator: RangeEvaluator
 ) {
-    private var selectedColour = "#000000"
+    private var selectedColour = "#E04848"
 
     fun getSelectedStyle() = getThemeStyle(selectedColour)
 
@@ -17,23 +17,20 @@ class ThemeProvider constructor(
     }
 
     private fun getThemeStyle(hexadecimalColour: String) = when {
+        rangeEvaluator.isPinkRange(hexadecimalColour) -> R.style.AppTheme_PINK
+        rangeEvaluator.isLightGreenRange(hexadecimalColour) -> R.style.AppTheme_LIGHTGREEN
+        rangeEvaluator.isGreenRange(hexadecimalColour) -> R.style.AppTheme_GREEN
         rangeEvaluator.isRedRange(hexadecimalColour) -> R.style.AppTheme_RED
         rangeEvaluator.isDeepOrangeRange(hexadecimalColour) -> R.style.AppTheme_DEEPORANGE
         rangeEvaluator.isAmberRange(hexadecimalColour) -> R.style.AppTheme_AMBER
         rangeEvaluator.isOrangeRange(hexadecimalColour) -> R.style.AppTheme_ORANGE
         rangeEvaluator.isYellowRange(hexadecimalColour) -> R.style.AppTheme_YELLOW
         rangeEvaluator.isLimeRange(hexadecimalColour) -> R.style.AppTheme_LIME
-        rangeEvaluator.isLightGreenRange(hexadecimalColour) -> R.style.AppTheme_LIGHTGREEN
-        rangeEvaluator.isGreenRange(hexadecimalColour) -> R.style.AppTheme_GREEN
         rangeEvaluator.isTealRange(hexadecimalColour) -> R.style.AppTheme_TEAL
         rangeEvaluator.isIndigoRange(hexadecimalColour) -> R.style.AppTheme_INDIGO
         rangeEvaluator.isLightBlueRange(hexadecimalColour) -> R.style.AppTheme_LIGHTBLUE
         rangeEvaluator.isCyanRange(hexadecimalColour) -> R.style.AppTheme_CYAN
         rangeEvaluator.isBlueRange(hexadecimalColour) -> R.style.AppTheme_BLUE
-        rangeEvaluator.isPurpleRange(hexadecimalColour) -> R.style.AppTheme_PURPLE
-        rangeEvaluator.isDeepPurpleRange(hexadecimalColour) -> R.style.AppTheme_DEEPPURPLE
-        rangeEvaluator.isPinkRange(hexadecimalColour) -> R.style.AppTheme_PINK
-        rangeEvaluator.isBrownRange(hexadecimalColour) -> R.style.AppTheme_BROWN
         else -> {
             R.style.AppTheme_GRAY
         }
