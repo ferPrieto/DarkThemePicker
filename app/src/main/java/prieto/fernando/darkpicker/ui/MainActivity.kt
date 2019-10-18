@@ -1,5 +1,6 @@
 package prieto.fernando.darkpicker.ui
 
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
@@ -11,12 +12,14 @@ import android.view.animation.TranslateAnimation
 import androidx.annotation.AttrRes
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.default_toolbar.*
 import kotlinx.android.synthetic.main.draw_layout.*
+import kotlinx.android.synthetic.main.main_activity.*
 import prieto.fernando.darkpicker.R
-import prieto.fernando.darkpicker.model.Theme
+import prieto.fernando.darkpicker.model.Style
 import prieto.fernando.darkpicker.presentation.MainViewModel
-import prieto.fernando.darkpicker.util.ThemeProvider
+import prieto.fernando.darkpicker.util.StyleProvider
 import prieto.fernando.darkpicker.widget.ColorSeekBar
 import prieto.fernando.darkpicker.widget.ThemeApplier
 import prieto.fernando.darkpicker.widget.ThemeMode
@@ -27,26 +30,38 @@ import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
 
 class MainActivity : BaseActivity<MainViewModel>() {
     @Inject
-    protected lateinit var themeProvider: ThemeProvider
+    protected lateinit var styleProvider: StyleProvider
 
     @Inject
     protected lateinit var themeApplier: ThemeApplier
 
-    private val themes = mutableListOf<Theme>()
+    private val styles = mutableListOf<Style>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.inputs.initTheme()
-        setTheme(themeProvider.getSelectedStyle())
-
+        setUpTheme()
         setContentView(R.layout.main_activity)
-        prepareThemeData()
+        prepareStyleData()
+        setUpViews()
+    }
+
+    private fun setUpViews() {
         val currentThemeMode = themeApplier.getCurrentMode().blockingGet()
         setFloatingActionButtonIcon(currentThemeMode)
         setupToolbar(currentThemeMode)
         setupStatusbar(currentThemeMode)
         setupDrawCardImage(currentThemeMode)
+    }
+
+    private fun setUpTheme() {
+        viewModel.inputs.initTheme()
+        val selectedStyle = styleProvider.getSelectedStyle()
+        setTheme(selectedStyle)
+
+        if (selectedStyle == R.style.AppTheme_GRAY) {
+            showError(R.string.error_picked_colour)
+        }
     }
 
     private fun setupToolbar(currentThemeMode: ThemeMode) {
@@ -63,7 +78,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = if (currentThemeMode == ThemeMode.DARK) {
             resources.getColor(R.color.darkStatusBar)
-        }else{
+        } else {
             themeColor(R.attr.colorPrimaryDark)
         }
     }
@@ -72,12 +87,17 @@ class MainActivity : BaseActivity<MainViewModel>() {
         if (currentThemeMode == ThemeMode.DARK) {
             val colorPrimary = themeColor(R.attr.colorPrimary)
             draw_media_image.setColorFilter(colorPrimary, PorterDuff.Mode.SRC_IN)
-        }else{
-            draw_media_image.setColorFilter(ContextCompat.getColor(this, android.R.color.darker_gray), PorterDuff.Mode.SRC_IN)
+        } else {
+            draw_media_image.setColorFilter(
+                ContextCompat.getColor(
+                    this,
+                    android.R.color.darker_gray
+                ), PorterDuff.Mode.SRC_IN
+            )
         }
     }
 
-        override fun onResume() {
+    override fun onResume() {
         super.onResume()
         animateFloatingButton()
         setupInputListeners()
@@ -89,6 +109,19 @@ class MainActivity : BaseActivity<MainViewModel>() {
             .subscribe { themeMode ->
                 setDarkLightMode(themeMode)
             }.also { subscriptions.add(it) }
+
+        viewModel.outputs.error()
+            .subscribe { errorResource ->
+                showError(errorResource)
+            }.also { subscriptions.add(it) }
+    }
+
+    private fun showError(errorResource: Int) {
+        Snackbar.make(
+            window.decorView.rootView,
+            resources.getText(errorResource),
+            Snackbar.LENGTH_SHORT
+        ).show()
     }
 
     private fun setDarkLightMode(currentThemeMode: ThemeMode) {
@@ -119,7 +152,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     private fun setupInputListeners() {
         colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
             override fun onColorChangeListener(hexadecimalColour: String) {
-                themeProvider.setSelectedColour(hexadecimalColour)
+                styleProvider.setSelectedColour(hexadecimalColour)
                 this@MainActivity.recreate()
             }
         })
@@ -136,16 +169,16 @@ class MainActivity : BaseActivity<MainViewModel>() {
         floatingActionButton.startAnimation(animation)
     }
 
-    private fun prepareThemeData() {
-        themes.clear()
-        themes.addAll(themeProvider.getThemeList())
+    private fun prepareStyleData() {
+        styles.clear()
+        styles.addAll(styleProvider.getStyleList())
     }
 
     override val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java)
     }
 
-    fun Context.themeColor(@AttrRes attrRes: Int): Int {
+    private fun Context.themeColor(@AttrRes attrRes: Int): Int {
         val typedValue = TypedValue()
         theme.resolveAttribute(attrRes, typedValue, true)
         return typedValue.data

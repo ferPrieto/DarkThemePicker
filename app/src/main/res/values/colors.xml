@@ -4,7 +4,7 @@
     <color name="darkToolbar">#191919</color>
     <color name="darkStatusBar">#121212</color>
 
-    <!-- BLACK Theme -->
+    <!-- BLACK Style -->
     <color name="primaryColorDark">#1F1B24</color>
     <color name="primaryLightColorDark">#FF9800</color>
     <color name="primaryDarkColorDark">#121212</color>
@@ -14,7 +14,7 @@
     <color name="primaryTextColorDark">#FAFAFA</color>
     <color name="secondaryTextColorDark">#EEEEEE</color>
 
-    <!-- RED Theme -->
+    <!-- RED Style -->
     <color name="primaryColorRed">#F44336</color>
     <color name="primaryLightColorRed">#FFCDD2</color>
     <color name="primaryDarkColorRed">#D32F2F</color>
@@ -24,7 +24,7 @@
     <color name="primaryTextColorRed">#ffffff</color>
     <color name="secondaryTextColorRed">#000000</color>
 
-    <!-- PINK Theme -->
+    <!-- PINK Style -->
     <color name="primaryColorPink">#E91E63</color>
     <color name="primaryLightColorPink">#F8BBD0</color>
     <color name="primaryDarkColorPink">#C2185B</color>
@@ -34,7 +34,7 @@
     <color name="primaryTextColorPink">#000000</color>
     <color name="secondaryTextColorPink">#000000</color>
 
-    <!-- PURPLE Theme -->
+    <!-- PURPLE Style -->
     <color name="primaryColorPurple">#9C27B0</color>
     <color name="primaryLightColorPurple">#E1BEE7</color>
     <color name="primaryDarkColorPurple">#7B1FA2</color>
@@ -45,7 +45,7 @@
     <color name="secondaryTextColorPurple">#000000</color>
 
 
-    <!-- DEEPPURPLE Theme -->
+    <!-- DEEPPURPLE Style -->
     <color name="primaryColorDeepPurple">#673AB7</color>
     <color name="primaryLightColorDeepPurple">#D1C4E9</color>
     <color name="primaryDarkColorDeepPurple">#512DA8</color>
@@ -55,7 +55,7 @@
     <color name="primaryTextColorDeepPurple">#ffffff</color>
     <color name="secondaryTextColorDeepPurple">#000000</color>
 
-    <!-- INDIGO Theme -->
+    <!-- INDIGO Style -->
     <color name="primaryColorIndigo">#3F51B5</color>
     <color name="primaryLightColorIndigo">#C5CAE9</color>
     <color name="primaryDarkColorIndigo">#303F9F</color>
@@ -65,7 +65,7 @@
     <color name="primaryTextColorIndigo">#ffffff</color>
     <color name="secondaryTextColorIndigo">#000000</color>
 
-    <!-- BLUE Theme -->
+    <!-- BLUE Style -->
     <color name="primaryColorBlue">#1e88e5</color>
     <color name="primaryLightColorBlue">#6ab7ff</color>
     <color name="primaryDarkColorBlue">#005cb2</color>
@@ -75,7 +75,7 @@
     <color name="primaryTextColorBlue">#000000</color>
     <color name="secondaryTextColorBlue">#000000</color>
 
-    <!-- LIGHTBLUE Theme -->
+    <!-- LIGHTBLUE Style -->
     <color name="primaryColorLightBlue">#039be5</color>
     <color name="primaryLightColorLightBlue">#63ccff</color>
     <color name="primaryDarkColorLightBlue">#006db3</color>
@@ -85,7 +85,7 @@
     <color name="primaryTextColorLightBlue">#000000</color>
     <color name="secondaryTextColorLightBlue">#000000</color>
 
-    <!-- CYAN Theme -->
+    <!-- CYAN Style -->
     <color name="primaryColorCyan">#00acc1</color>
     <color name="primaryLightColorCyan">#5ddef4</color>
     <color name="primaryDarkColorCyan">#007c91</color>
@@ -95,7 +95,7 @@
     <color name="primaryTextColorCyan">#000000</color>
     <color name="secondaryTextColorCyan">#000000</color>
 
-    <!-- TEAL Theme -->
+    <!-- TEAL Style -->
     <color name="primaryColorTeal">#00796b</color>
     <color name="primaryLightColorTeal">#48a999</color>
     <color name="primaryDarkColorTeal">#004c40</color>
@@ -107,7 +107,7 @@
 
 
 
-    <!--  GREEN Theme -->
+    <!--  GREEN Style -->
     <color name="primaryColorGreen">#4CAF50</color>
     <color name="primaryLightColorGreen">#C8E6C9</color>
     <color name="primaryDarkColorGreen">#388E3C</color>
@@ -117,7 +117,7 @@
     <color name="primaryTextColorGreen">#ffffff</color>
     <color name="secondaryTextColorGreen">#000000</color>
 
-    <!-- LIGHTGREEN Theme -->
+    <!-- LIGHTGREEN Style -->
     <color name="primaryColorLightGreen">#8BC34A</color>
     <color name="primaryLightColorLightGreen">#DCEDC8</color>
     <color name="primaryDarkColorLightGreen">#689F38</color>
@@ -127,7 +127,7 @@
     <color name="primaryTextColorLightGreen">#ffffff</color>
     <color name="secondaryTextColorLightGreen">#000000</color>
 
-    <!-- Lime Theme -->
+    <!-- Lime Style -->
     <color name="primaryColorLime">#CDDC39</color>
     <color name="primaryLightColorLime">#F0F4C3</color>
     <color name="primaryDarkColorLime">#AFB42B</color>
@@ -137,7 +137,7 @@
     <color name="primaryTextColorLime">#ffffff</color>
     <color name="secondaryTextColorLime">#000000</color>
 
-    <!-- YELLOW Theme -->
+    <!-- YELLOW Style -->
     <color name="primaryColorYellow">#FFEB3B</color>
     <color name="primaryLightColorYellow">#FFF9C4</color>
     <color name="primaryDarkColorYellow">#FBC02D</color>
@@ -147,7 +147,7 @@
     <color name="primaryTextColorYellow">#ffffff</color>
     <color name="secondaryTextColorYellow">#000000</color>
 
-    <!-- AMBER Theme -->
+    <!-- AMBER Style -->
     <color name="primaryColorAmber">#FFC107</color>
     <color name="primaryLightColorAmber">#FFECB3</color>
     <color name="primaryDarkColorAmber">#FFA000</color>
@@ -157,7 +157,7 @@
     <color name="primaryTextColorAmber">#ffffff</color>
     <color name="secondaryTextColorAmber">#000000</color>
 
-    <!-- ORANGE Theme -->
+    <!-- ORANGE Style -->
     <color name="primaryColorOrange">#FF9800</color>
     <color name="primaryLightColorOrange">#FFE0B2</color>
     <color name="primaryDarkColorOrange">#F57C00</color>
@@ -167,7 +167,7 @@
     <color name="primaryTextColorOrange">#ffffff</color>
     <color name="secondaryTextColorOrange">#000000</color>
 
-    <!-- DEEPORANGE Theme -->
+    <!-- DEEPORANGE Style -->
     <color name="primaryColorDeepOrange">#FF5722</color>
     <color name="primaryLightColorDeepOrange">#FFCCBC</color>
     <color name="primaryDarkColorDeepOrange">#E64A19</color>
@@ -177,7 +177,7 @@
     <color name="primaryTextColorDeepOrange">#ffffff</color>
     <color name="secondaryTextColorDeepOrange">#000000</color>
 
-    <!-- BROWN Theme -->
+    <!-- BROWN Style -->
     <color name="primaryColorBrown">#795548</color>
     <color name="primaryLightColorBrown">#D7CCC8</color>
     <color name="primaryDarkColorBrown">#5D4037</color>
@@ -187,7 +187,7 @@
     <color name="primaryTextColorBrown">#ffffff</color>
     <color name="secondaryTextColorBrown">#000000</color>
 
-    <!-- GRAY Theme -->
+    <!-- GRAY Style -->
     <color name="primaryColorGray">#9E9E9E</color>
     <color name="primaryLightColorGray">#F5F5F5</color>
     <color name="primaryDarkColorGray">#616161</color>
@@ -197,7 +197,7 @@
     <color name="primaryTextColorGray">#ffffff</color>
     <color name="secondaryTextColorGray">#000000</color>
 
-    <!-- BLUEGRAY Theme -->
+    <!-- BLUEGRAY Style -->
     <color name="primaryColorBlueGray">#607D8B</color>
     <color name="primaryLightColorBlueGray">#CFD8DC</color>
     <color name="primaryDarkColorBlueGray">#455A64</color>

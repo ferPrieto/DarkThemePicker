@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.widget.ThemeApplier
 import prieto.fernando.darkpicker.widget.ThemeMode
 import prieto.fernando.presentation.BaseViewModel
@@ -49,10 +50,7 @@ open class MainViewModel @Inject constructor(
             .subscribe({ currentMode ->
                 currentThemeModeRetrieved.onNext(currentMode)
             }, { throwable ->
-                Log.d(
-                    "themeApplier.getCurrentMode()",
-                    "There was an issue getting current mode"
-                )
+                error.onNext(R.string.error_current_mode)
             }).also { subscriptions.add(it) }
     }
 
