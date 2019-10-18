@@ -2,10 +2,10 @@ package prieto.fernando.darkpicker.util
 
 import android.annotation.SuppressLint
 import prieto.fernando.darkpicker.R
-import prieto.fernando.darkpicker.model.Theme
+import prieto.fernando.darkpicker.model.Style
 import java.util.*
 
-class ThemeProvider constructor(
+class StyleProvider constructor(
     private val rangeEvaluator: RangeEvaluator
 ) {
     private var selectedColour = "#E04848"
@@ -37,161 +37,161 @@ class ThemeProvider constructor(
     }
 
     @SuppressLint("ResourceAsColor")
-    fun getThemeList(): ArrayList<Theme> {
-        val themeArrayList = ArrayList<Theme>()
-        themeArrayList.add(
-            Theme(
+    fun getStyleList(): ArrayList<Style> {
+        val styleArrayList = ArrayList<Style>()
+        styleArrayList.add(
+            Style(
                 0,
                 R.color.primaryColorRed,
                 R.color.primaryDarkColorRed,
                 R.color.secondaryColorRed
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 1,
                 R.color.primaryColorPink,
                 R.color.primaryDarkColorPink,
                 R.color.secondaryColorPink
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 2,
                 R.color.primaryColorPurple,
                 R.color.primaryDarkColorPurple,
                 R.color.secondaryColorPurple
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 3,
                 R.color.primaryColorDeepPurple,
                 R.color.primaryDarkColorDeepPurple,
                 R.color.secondaryColorDeepPurple
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 4,
                 R.color.primaryColorIndigo,
                 R.color.primaryDarkColorIndigo,
                 R.color.secondaryColorIndigo
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 5,
                 R.color.primaryColorBlue,
                 R.color.primaryDarkColorBlue,
                 R.color.secondaryColorBlue
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 6,
                 R.color.primaryColorLightBlue,
                 R.color.primaryDarkColorLightBlue,
                 R.color.secondaryColorLightBlue
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 7,
                 R.color.primaryColorCyan,
                 R.color.primaryDarkColorCyan,
                 R.color.secondaryColorCyan
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 8,
                 R.color.primaryColorTeal,
                 R.color.primaryDarkColorTeal,
                 R.color.secondaryColorTeal
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 9,
                 R.color.primaryColorGreen,
                 R.color.primaryDarkColorGreen,
                 R.color.secondaryColorGreen
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 10,
                 R.color.primaryColorLightGreen,
                 R.color.primaryDarkColorLightGreen,
                 R.color.secondaryColorLightGreen
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 11,
                 R.color.primaryColorLime,
                 R.color.primaryDarkColorLime,
                 R.color.secondaryColorLime
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 12,
                 R.color.primaryColorYellow,
                 R.color.primaryDarkColorYellow,
                 R.color.secondaryColorYellow
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 13,
                 R.color.primaryColorAmber,
                 R.color.primaryDarkColorAmber,
                 R.color.secondaryColorAmber
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 14,
                 R.color.primaryColorOrange,
                 R.color.primaryDarkColorOrange,
                 R.color.secondaryColorOrange
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 15,
                 R.color.primaryColorDeepOrange,
                 R.color.primaryDarkColorDeepOrange,
                 R.color.secondaryColorDeepOrange
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 16,
                 R.color.primaryColorBrown,
                 R.color.primaryDarkColorBrown,
                 R.color.secondaryColorBrown
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 17,
                 R.color.primaryColorGray,
                 R.color.primaryDarkColorGray,
                 R.color.secondaryColorGray
             )
         )
-        themeArrayList.add(
-            Theme(
+        styleArrayList.add(
+            Style(
                 18,
                 R.color.primaryColorBlueGray,
                 R.color.primaryDarkColorBlueGray,
                 R.color.secondaryColorBlueGray
             )
         )
-        return themeArrayList
+        return styleArrayList
     }
 
 }

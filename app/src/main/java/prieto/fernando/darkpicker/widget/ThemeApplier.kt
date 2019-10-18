@@ -28,7 +28,6 @@ class ThemeApplier @Inject constructor() {
                 }
             }
         }
-
     }
 
     fun applyTheme(themeMode: ThemeMode) {
