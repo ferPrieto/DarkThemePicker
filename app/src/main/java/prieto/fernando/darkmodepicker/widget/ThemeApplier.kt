@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.widget
+package prieto.fernando.darkmodepicker.widget
 
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.BuildCompat

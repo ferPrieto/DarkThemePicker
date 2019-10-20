@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.di
+package prieto.fernando.darkmodepicker.di
 
 import javax.inject.Scope
 import kotlin.annotation.Retention

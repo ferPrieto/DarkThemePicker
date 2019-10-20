@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.util
+package prieto.fernando.darkmodepicker.util
 
 import java.lang.Long
 

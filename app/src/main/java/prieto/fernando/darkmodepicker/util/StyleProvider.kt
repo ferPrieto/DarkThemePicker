@@ -1,8 +1,8 @@
-package prieto.fernando.darkpicker.util
+package prieto.fernando.darkmodepicker.util
 
 import android.annotation.SuppressLint
-import prieto.fernando.darkpicker.R
-import prieto.fernando.darkpicker.model.Style
+import prieto.fernando.darkmodepicker.R
+import prieto.fernando.darkmodepicker.model.Style
 
 class StyleProvider constructor(
     private val rangeEvaluator: RangeEvaluator

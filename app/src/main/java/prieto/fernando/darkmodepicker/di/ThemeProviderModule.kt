@@ -1,10 +1,10 @@
-package prieto.fernando.darkpicker.di
+package prieto.fernando.darkmodepicker.di
 
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
-import prieto.fernando.darkpicker.util.RangeEvaluator
-import prieto.fernando.darkpicker.util.StyleProvider
+import prieto.fernando.darkmodepicker.util.RangeEvaluator
+import prieto.fernando.darkmodepicker.util.StyleProvider
 
 @Module
 class ThemeProviderModule {

@@ -1,10 +1,10 @@
-package prieto.fernando.darkpicker.di
+package prieto.fernando.darkmodepicker.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
-import prieto.fernando.darkpicker.presentation.MainViewModel
-import prieto.fernando.darkpicker.ui.MainActivity
+import prieto.fernando.darkmodepicker.presentation.MainViewModel
+import prieto.fernando.darkmodepicker.ui.MainActivity
 
 @Module
 internal abstract class MainActivityModule {

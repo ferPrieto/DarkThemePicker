@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.model
+package prieto.fernando.darkmodepicker.model
 
 import androidx.annotation.ColorInt
 

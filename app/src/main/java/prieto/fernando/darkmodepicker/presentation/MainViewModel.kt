@@ -1,14 +1,14 @@
-package prieto.fernando.darkpicker.presentation
+package prieto.fernando.darkmodepicker.presentation
 
 import android.app.Application
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
-import prieto.fernando.darkpicker.R
-import prieto.fernando.darkpicker.domain.ApplyThemeUseCase
-import prieto.fernando.darkpicker.domain.GetCurrentModeUseCase
-import prieto.fernando.darkpicker.domain.InitThemeApplierUseCase
-import prieto.fernando.darkpicker.widget.ThemeMode
+import prieto.fernando.darkmodepicker.R
+import prieto.fernando.darkmodepicker.domain.ApplyThemeUseCase
+import prieto.fernando.darkmodepicker.domain.GetCurrentModeUseCase
+import prieto.fernando.darkmodepicker.domain.InitThemeApplierUseCase
+import prieto.fernando.darkmodepicker.widget.ThemeMode
 import prieto.fernando.presentation.BaseViewModel
 import prieto.fernando.presentation.BaseViewModelInputs
 import prieto.fernando.presentation.BaseViewModelOutputs
@@ -61,7 +61,7 @@ open class MainViewModel @Inject constructor(
         getCurrentModeUseCase.execute()
             .subscribe({ currentMode ->
                 currentThemeModeRetrieved.onNext(currentMode)
-            }, { throwable ->
+            }, {
                 error.onNext(R.string.error_current_mode)
             }).also { subscriptions.add(it) }
     }

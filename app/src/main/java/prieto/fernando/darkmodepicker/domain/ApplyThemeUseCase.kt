@@ -1,9 +1,9 @@
-package prieto.fernando.darkpicker.domain
+package prieto.fernando.darkmodepicker.domain
 
 import dagger.Reusable
 import javax.inject.Inject
-import prieto.fernando.darkpicker.widget.ThemeApplier
-import prieto.fernando.darkpicker.widget.ThemeMode
+import prieto.fernando.darkmodepicker.widget.ThemeApplier
+import prieto.fernando.darkmodepicker.widget.ThemeMode
 
 @Reusable
 class ApplyThemeUseCase @Inject constructor(

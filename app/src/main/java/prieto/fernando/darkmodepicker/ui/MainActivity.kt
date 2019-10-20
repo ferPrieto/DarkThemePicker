@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.ui
+package prieto.fernando.darkmodepicker.ui
 
 import android.content.Context
 import android.graphics.PorterDuff
@@ -17,13 +17,13 @@ import kotlinx.android.synthetic.main.default_toolbar.*
 import kotlinx.android.synthetic.main.draw_layout.*
 import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
 import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
-import prieto.fernando.darkpicker.R
-import prieto.fernando.darkpicker.model.Style
-import prieto.fernando.darkpicker.presentation.MainViewModel
-import prieto.fernando.darkpicker.util.StyleProvider
-import prieto.fernando.darkpicker.widget.ColorSeekBar
-import prieto.fernando.darkpicker.widget.ThemeApplier
-import prieto.fernando.darkpicker.widget.ThemeMode
+import prieto.fernando.darkmodepicker.R
+import prieto.fernando.darkmodepicker.model.Style
+import prieto.fernando.darkmodepicker.presentation.MainViewModel
+import prieto.fernando.darkmodepicker.util.StyleProvider
+import prieto.fernando.darkmodepicker.widget.ColorSeekBar
+import prieto.fernando.darkmodepicker.widget.ThemeApplier
+import prieto.fernando.darkmodepicker.widget.ThemeMode
 
 class MainActivity : BaseActivity<MainViewModel>() {
     @Inject

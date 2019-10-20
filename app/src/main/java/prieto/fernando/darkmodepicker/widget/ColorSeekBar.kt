@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.widget
+package prieto.fernando.darkmodepicker.widget
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,12 +6,13 @@ import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.RectF
+import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ArrayRes
 import kotlin.math.roundToInt
-import prieto.fernando.darkpicker.R
+import prieto.fernando.darkmodepicker.R
 
 class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
 

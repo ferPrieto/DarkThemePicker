@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.ui
+package prieto.fernando.darkmodepicker.ui
 
 import androidx.lifecycle.ViewModel
 

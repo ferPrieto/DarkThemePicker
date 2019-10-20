@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DarkPicker</string>
+    <string name="app_name">DarkModePicker</string>
 
     <string name="title_text">Dark theme</string>
     <string name="small_text">
@@ -13,7 +13,7 @@
 
     <!-- Draw Layout -->
     <string name="draw_primary">Welcome</string>
-    <string name="draw_sub_text">to the DarkPicker Demo</string>
+    <string name="draw_sub_text">to the DarkModePicker Demo</string>
     <string name="draw_action_button_first">HELLO</string>
     <string name="draw_action_butto_second">BYE</string>
 
