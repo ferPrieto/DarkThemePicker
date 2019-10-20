@@ -6,9 +6,8 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.support.AndroidSupportInjectionModule
-import prieto.fernando.darkpicker.DarkPickerApp
 import javax.inject.Singleton
-
+import prieto.fernando.darkpicker.DarkPickerApp
 
 @Singleton
 @Component(

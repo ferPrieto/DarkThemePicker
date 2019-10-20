@@ -1,6 +1,5 @@
 package prieto.fernando.darkpicker.ui
 
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
@@ -13,9 +12,11 @@ import androidx.annotation.AttrRes
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.default_toolbar.*
 import kotlinx.android.synthetic.main.draw_layout.*
-import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
+import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Style
 import prieto.fernando.darkpicker.presentation.MainViewModel
@@ -23,10 +24,6 @@ import prieto.fernando.darkpicker.util.StyleProvider
 import prieto.fernando.darkpicker.widget.ColorSeekBar
 import prieto.fernando.darkpicker.widget.ThemeApplier
 import prieto.fernando.darkpicker.widget.ThemeMode
-import javax.inject.Inject
-import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
-import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
-
 
 class MainActivity : BaseActivity<MainViewModel>() {
     @Inject
@@ -77,7 +74,9 @@ class MainActivity : BaseActivity<MainViewModel>() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = if (currentThemeMode == ThemeMode.DARK) {
-            resources.getColor(R.color.darkStatusBar)
+            ContextCompat.getColor(
+                this, R.color.darkStatusBar
+            )
         } else {
             themeColor(R.attr.colorPrimaryDark)
         }
@@ -151,8 +150,8 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     private fun setupInputListeners() {
         colorSeekBar.setOnColorChangeListener(object : ColorSeekBar.OnColorChangeListener {
-            override fun onColorChangeListener(hexadecimalColour: String) {
-                styleProvider.setSelectedColour(hexadecimalColour)
+            override fun onColorChangeListener(color: String) {
+                styleProvider.setSelectedColour(color)
                 this@MainActivity.recreate()
             }
         })
@@ -174,13 +173,13 @@ class MainActivity : BaseActivity<MainViewModel>() {
         styles.addAll(styleProvider.getStyleList())
     }
 
-    override val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java)
-    }
-
     private fun Context.themeColor(@AttrRes attrRes: Int): Int {
         val typedValue = TypedValue()
         theme.resolveAttribute(attrRes, typedValue, true)
         return typedValue.data
+    }
+
+    override val viewModel: MainViewModel by lazy {
+        ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java)
     }
 }

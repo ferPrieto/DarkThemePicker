@@ -10,7 +10,7 @@ import javax.inject.Inject
 class ThemeApplier @Inject constructor() {
     private var selectedTheme = ThemeMode.DEFAULT
 
-    fun initTheme() {
+    fun initTheme(): Single<Unit> {
         when (selectedTheme) {
             ThemeMode.LIGHT -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -28,9 +28,10 @@ class ThemeApplier @Inject constructor() {
                 }
             }
         }
+        return Single.just(Unit)
     }
 
-    fun applyTheme(themeMode: ThemeMode) {
+    fun applyTheme(themeMode: ThemeMode): Single<Unit> {
         when (themeMode) {
             ThemeMode.LIGHT -> {
                 selectedTheme = ThemeMode.LIGHT
@@ -51,6 +52,7 @@ class ThemeApplier @Inject constructor() {
                 }
             }
         }
+        return Single.just(Unit)
     }
 
     fun getCurrentMode() = Single.just(selectedTheme)

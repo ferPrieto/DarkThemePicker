@@ -20,5 +20,4 @@ internal abstract class MainActivityModule {
             return prieto.fernando.presentation.ViewModelProviderFactory(viewModel)
         }
     }
-
 }

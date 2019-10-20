@@ -3,7 +3,6 @@ package prieto.fernando.darkpicker.util
 import android.annotation.SuppressLint
 import prieto.fernando.darkpicker.R
 import prieto.fernando.darkpicker.model.Style
-import java.util.*
 
 class StyleProvider constructor(
     private val rangeEvaluator: RangeEvaluator
@@ -193,6 +192,4 @@ class StyleProvider constructor(
         )
         return styleArrayList
     }
-
 }
-
