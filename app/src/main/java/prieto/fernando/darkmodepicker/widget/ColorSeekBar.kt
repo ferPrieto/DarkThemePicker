@@ -1,14 +1,18 @@
-package prieto.fernando.darkpicker.widget
+package prieto.fernando.darkmodepicker.widget
 
 import android.content.Context
-
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.RectF
+import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ArrayRes
-import prieto.fernando.darkpicker.R
 import kotlin.math.roundToInt
+import prieto.fernando.darkmodepicker.R
 
 class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
 
@@ -121,13 +125,11 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        //color bar position
         val barLeft: Float = paddingStart
         val barRight: Float = width.toFloat() - paddingEnd
         val barTop: Float = ((canvasHeight / 2) - (barHeight / 2)).toFloat()
         val barBottom: Float = ((canvasHeight / 2) + (barHeight / 2)).toFloat()
 
-        //draw color bar
         rectf.set(barLeft, barTop, barRight, barBottom)
         canvas?.drawRoundRect(rectf, barCornerRadius, barCornerRadius, rectPaint)
 
@@ -139,7 +141,6 @@ class ColorSeekBar(context: Context, attributeSet: AttributeSet) : View(context,
         val color = pickColor(thumbX, width)
         thumbPaint.color = color
 
-        // draw color bar thumb
         canvas?.drawCircle(thumbX, thumbY, thumbBorderRadius, thumbBorderPaint)
         canvas?.drawCircle(thumbX, thumbY, thumbRadius, thumbPaint)
     }

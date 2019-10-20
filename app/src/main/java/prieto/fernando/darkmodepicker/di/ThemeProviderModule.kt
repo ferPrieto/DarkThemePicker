@@ -1,10 +1,10 @@
-package prieto.fernando.darkpicker.di
+package prieto.fernando.darkmodepicker.di
 
 import dagger.Module
 import dagger.Provides
-import prieto.fernando.darkpicker.util.RangeEvaluator
-import prieto.fernando.darkpicker.util.StyleProvider
 import javax.inject.Singleton
+import prieto.fernando.darkmodepicker.util.RangeEvaluator
+import prieto.fernando.darkmodepicker.util.StyleProvider
 
 @Module
 class ThemeProviderModule {
@@ -20,6 +20,5 @@ class ThemeProviderModule {
         @JvmStatic
         @Singleton
         internal fun provideRangeEvaluator() = RangeEvaluator()
-
     }
 }

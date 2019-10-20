@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.util
+package prieto.fernando.darkmodepicker.util
 
 import java.lang.Long
 
@@ -75,9 +75,9 @@ class RangeEvaluator {
             "#03AEFF", "#05ACFF", "#08AAFF", "#0BA7FF"
         )
 
-        return (blue.getColourLong() in rangeFirst)
-                || (blue.getColourLong() in rangeSecond)
-                || otherBlues.contains(blue)
+        return (blue.getColourLong() in rangeFirst) ||
+                (blue.getColourLong() in rangeSecond) ||
+                otherBlues.contains(blue)
     }
 
     fun isPinkRange(

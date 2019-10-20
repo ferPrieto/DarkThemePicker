@@ -1,4 +1,4 @@
-package prieto.fernando.darkpicker.di
+package prieto.fernando.darkmodepicker.di
 
 import android.app.Application
 import dagger.BindsInstance
@@ -6,9 +6,8 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.support.AndroidSupportInjectionModule
-import prieto.fernando.darkpicker.DarkPickerApp
 import javax.inject.Singleton
-
+import prieto.fernando.darkmodepicker.DarkModePickerApp
 
 @Singleton
 @Component(
@@ -20,7 +19,7 @@ import javax.inject.Singleton
 )
 interface AppComponent : AndroidInjector<DaggerApplication> {
 
-    fun inject(app: DarkPickerApp)
+    fun inject(app: DarkModePickerApp)
 
     @Component.Builder
     interface Builder {

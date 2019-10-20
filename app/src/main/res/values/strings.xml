@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DarkPicker</string>
+    <string name="app_name">DarkModePicker</string>
 
     <string name="title_text">Dark theme</string>
     <string name="small_text">
@@ -13,13 +13,15 @@
 
     <!-- Draw Layout -->
     <string name="draw_primary">Welcome</string>
-    <string name="draw_sub_text">to the DarkPicker Demo</string>
+    <string name="draw_sub_text">to the DarkModePicker Demo</string>
     <string name="draw_action_button_first">HELLO</string>
     <string name="draw_action_butto_second">BYE</string>
 
     <!-- Errors -->
     <string name="error_current_mode">There was an issue getting current Theme mode</string>
     <string name="error_picked_colour">That colour could not be picked</string>
+    <string name="error_init_theme_mode">There was an issue while initializing Theme mode</string>
+    <string name="error_apply_theme_mode">There was an issue applying Theme mode</string>
 
 
 </resources>

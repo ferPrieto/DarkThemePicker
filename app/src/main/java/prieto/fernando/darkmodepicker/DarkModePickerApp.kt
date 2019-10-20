@@ -1,10 +1,10 @@
-package prieto.fernando.darkpicker
+package prieto.fernando.darkmodepicker
 
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import prieto.fernando.darkpicker.di.DaggerAppComponent
+import prieto.fernando.darkmodepicker.di.DaggerAppComponent
 
-class DarkPickerApp : DaggerApplication() {
+class DarkModePickerApp : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         val appComponent = DaggerAppComponent.builder()

@@ -19,7 +19,7 @@
 
         <include layout="@layout/draw_layout" />
 
-        <prieto.fernando.darkpicker.widget.ColorSeekBar
+        <prieto.fernando.darkmodepicker.widget.ColorSeekBar
             android:id="@+id/color_seek_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
