@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DarkModePicker</string>
+    <string name="app_name">DarkThemePicker</string>
 
     <string name="title_text">Dark theme</string>
     <string name="small_text">
