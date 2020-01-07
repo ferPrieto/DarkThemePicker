@@ -1,8 +1,9 @@
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-DarkThemePicker-green.svg?style=flat )]( https://android-arsenal.com/details/1/8017 )
 
 # DarkThemePicker  
   
-This project is a Dark Theme experiment, in order to show the combination of colours from light to dark theme,
-I have added a colour picker to switch between them.   
+This project is a Dark Theme experiment, in order to show the combination of colours from `light` to `dark theme`.
+There's a `colour picker` to change the colour setup in the entire app and a `Dark/Light theme switcher button` that recreates the Activity with the theme mode selected.
 
 ![App Demo](Demo-DarkThemePicker.gif)
 
@@ -11,7 +12,7 @@ I have added a colour picker to switch between them.
 [https://material.io/design/color/dark-theme.html#ui-application](https://material.io/design/color/dark-theme.html#ui-application)
   
 ## Big shout out 
-The next projects (which were useful during the development process of mine)  
+The next two projects (which were useful during the development process of `DarkThemePicker`)
 * ColorSeekBar  
 https://github.com/divyanshub024/ColorSeekBar  
   
