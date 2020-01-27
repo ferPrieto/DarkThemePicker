@@ -5,7 +5,9 @@
 This project is a Dark Theme experiment, in order to show the combination of colours from `light` to `dark theme`.
 There's a `colour picker` to change the colour setup in the entire app and a `Dark/Light theme switcher button` that recreates the Activity with the theme mode selected.
 
-![App Demo](Demo-DarkThemePicker.gif)
+<p align="center">
+  <img src="Demo-DarkThemePicker.gif">
+</p>
 
  
 ## Reference
