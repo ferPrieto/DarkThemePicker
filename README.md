@@ -24,7 +24,7 @@ https://github.com/pkjvit/Android-Multi-Theme-UI
 
 #  License
 
-    Copyright 2019 Fernando Prieto Moyano
+    Copyright 2020 Fernando Prieto Moyano
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

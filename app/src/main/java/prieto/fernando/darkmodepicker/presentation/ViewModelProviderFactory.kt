@@ -1,4 +1,4 @@
-package prieto.fernando.presentation
+package prieto.fernando.darkmodepicker.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

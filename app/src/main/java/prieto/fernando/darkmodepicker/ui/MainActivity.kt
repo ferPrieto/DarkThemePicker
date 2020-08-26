@@ -8,35 +8,45 @@ import android.util.TypedValue
 import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.TranslateAnimation
+import androidx.activity.viewModels
 import androidx.annotation.AttrRes
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
-import javax.inject.Inject
-import kotlinx.android.synthetic.main.default_toolbar.*
+import dagger.android.support.DaggerAppCompatActivity
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.draw_layout.*
-import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
-import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
 import prieto.fernando.darkmodepicker.R
 import prieto.fernando.darkmodepicker.model.Style
 import prieto.fernando.darkmodepicker.presentation.MainViewModel
+import prieto.fernando.darkmodepicker.presentation.ViewModelProviderFactory
 import prieto.fernando.darkmodepicker.util.StyleProvider
 import prieto.fernando.darkmodepicker.widget.ColorSeekBar
 import prieto.fernando.darkmodepicker.widget.ThemeApplier
 import prieto.fernando.darkmodepicker.widget.ThemeMode
+import javax.inject.Inject
+import kotlinx.android.synthetic.main.default_toolbar.default_toolbar as defautlToolbar
+import kotlinx.android.synthetic.main.main_activity.color_seek_bar as colorSeekBar
+import kotlinx.android.synthetic.main.main_activity.fab as floatingActionButton
 
-class MainActivity : BaseActivity<MainViewModel>() {
+class MainActivity : DaggerAppCompatActivity() {
+
+    @Inject
+    protected lateinit var vmFactory: ViewModelProviderFactory<MainViewModel>
+
     @Inject
     protected lateinit var styleProvider: StyleProvider
 
     @Inject
     protected lateinit var themeApplier: ThemeApplier
 
+    private val subscriptions = CompositeDisposable()
+
+    private val viewModel: MainViewModel by viewModels { vmFactory }
+
     private val styles = mutableListOf<Style>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setUpTheme()
         setContentView(R.layout.main_activity)
         prepareStyleData()
@@ -63,20 +73,22 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     private fun setupToolbar(currentThemeMode: ThemeMode) {
         if (currentThemeMode == ThemeMode.DARK) {
-            default_toolbar.background =
+            defautlToolbar.background =
                 ColorDrawable(ContextCompat.getColor(this, R.color.darkToolbar))
             val colorPrimary = themeColor(R.attr.colorPrimary)
-            default_toolbar.setTitleTextColor(colorPrimary)
+            defautlToolbar.setTitleTextColor(colorPrimary)
         }
     }
 
     private fun setupStatusbar(currentThemeMode: ThemeMode) {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = if (currentThemeMode == ThemeMode.DARK) {
-            ContextCompat.getColor(
-                this, R.color.darkStatusBar
-            )
+        window.statusBarColor = getStatusBarColorFromTheme(currentThemeMode)
+    }
+
+    private fun getStatusBarColorFromTheme(currentThemeMode: ThemeMode): Int {
+        return if (currentThemeMode == ThemeMode.DARK) {
+            ContextCompat.getColor(this, R.color.darkStatusBar)
         } else {
             themeColor(R.attr.colorPrimaryDark)
         }
@@ -179,7 +191,8 @@ class MainActivity : BaseActivity<MainViewModel>() {
         return typedValue.data
     }
 
-    override val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(this, vmFactory).get(MainViewModel::class.java)
+    override fun onDestroy() {
+        subscriptions.clear()
+        super.onDestroy()
     }
 }

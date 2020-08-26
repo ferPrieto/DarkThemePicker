@@ -9,9 +9,6 @@ import prieto.fernando.darkmodepicker.domain.ApplyThemeUseCase
 import prieto.fernando.darkmodepicker.domain.GetCurrentModeUseCase
 import prieto.fernando.darkmodepicker.domain.InitThemeApplierUseCase
 import prieto.fernando.darkmodepicker.widget.ThemeMode
-import prieto.fernando.presentation.BaseViewModel
-import prieto.fernando.presentation.BaseViewModelInputs
-import prieto.fernando.presentation.BaseViewModelOutputs
 
 interface MainViewModelInputs : BaseViewModelInputs {
     fun initTheme()

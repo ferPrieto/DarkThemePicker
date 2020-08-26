@@ -82,8 +82,7 @@ class RangeEvaluator {
 
     fun isPinkRange(
         hexadecimalColour: String
-    ) =
-        listOf(
+    ) = listOf(
             "#A726FA", "#B31CFA", "#B61AFA", "#B917FA", "#BC15FA", "#C011FA", "#C30FFA",
             "#C60CF9", "#C90AF9", "#CC07F9", "#D500F9", "#D501F8", "#D303F5", "#D304F4",
             "#D107F0", "#D008EE", "#CF09ED", "#CE0BEB", "#CD0DE7", "#CC0EE6", "#CB10E4",

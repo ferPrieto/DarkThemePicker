@@ -1,4 +1,4 @@
-package prieto.fernando.presentation
+package prieto.fernando.darkmodepicker.presentation
 
 import io.reactivex.CompletableTransformer
 import io.reactivex.FlowableTransformer

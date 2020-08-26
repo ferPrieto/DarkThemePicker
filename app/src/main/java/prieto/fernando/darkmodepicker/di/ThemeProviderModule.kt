@@ -8,7 +8,6 @@ import prieto.fernando.darkmodepicker.util.StyleProvider
 
 @Module
 class ThemeProviderModule {
-
     @Module
     companion object {
         @Provides

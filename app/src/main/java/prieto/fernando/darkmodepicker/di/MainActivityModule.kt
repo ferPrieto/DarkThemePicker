@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 import prieto.fernando.darkmodepicker.presentation.MainViewModel
+import prieto.fernando.darkmodepicker.presentation.ViewModelProviderFactory
 import prieto.fernando.darkmodepicker.ui.MainActivity
 
 @Module
@@ -16,8 +17,8 @@ internal abstract class MainActivityModule {
     companion object {
         @Provides
         @JvmStatic
-        internal fun provideMainViewModelFactory(viewModel: MainViewModel): prieto.fernando.presentation.ViewModelProviderFactory<MainViewModel> {
-            return prieto.fernando.presentation.ViewModelProviderFactory(viewModel)
+        internal fun provideMainViewModelFactory(viewModel: MainViewModel): ViewModelProviderFactory<MainViewModel> {
+            return ViewModelProviderFactory(viewModel)
         }
     }
 }

@@ -1,4 +1,4 @@
-package prieto.fernando.presentation
+package prieto.fernando.darkmodepicker.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -37,9 +37,9 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     open val outputs: BaseViewModelOutputs
         get() = this
 
-    protected val finish: Subject<Unit> = PublishSubject.create()
+    private val finish: Subject<Unit> = PublishSubject.create()
     protected val error: Subject<Int> = PublishSubject.create()
-    protected val refreshing: Subject<Boolean> = BehaviorSubject.createDefault(false)
+    private val refreshing: Subject<Boolean> = BehaviorSubject.createDefault(false)
 
     override fun error(): Observable<Int> {
         return error.observeOn(schedulerProvider.ui())
